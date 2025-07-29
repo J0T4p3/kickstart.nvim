@@ -100,6 +100,13 @@ if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, 'p')
 end
 
+-- Tmux navigation
+vim.g.tmux_navigator_no_mappings = 1
+vim.keymap.set('n', '<C-h>', ':TmuxNavigateLeft<CR>', { silent = true })
+vim.keymap.set('n', '<C-j>', ':TmuxNavigateDown<CR>', { silent = true })
+vim.keymap.set('n', '<C-k>', ':TmuxNavigateUp<CR>', { silent = true })
+vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<CR>', { silent = true })
+
 -- terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
